@@ -35,8 +35,40 @@ module.exports = {
   ** Nuxt.js modules
   */
 	modules: [
-		// Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
 		'@nuxtjs/bulma',
+		['nuxt-i18n', {
+			locales: [
+				{
+					code: 'en',
+					iso: 'en-US',
+				},
+				{
+					code: 'ja',
+					iso: 'ja-JP',
+				},
+			],
+			defaultLocale: 'ja',
+			vueI18n: {
+				fallbackLocale: 'ja',
+				messages: {
+					en: {
+						text: 'Text',
+						qrcode: 'QR Code',
+						twitqr: 'TwitQR',
+						subtitle: 'Influence your QR Code with only one tweet!',
+					},
+					ja: {
+						text: 'テキスト',
+						qrcode: 'QRコード',
+						twitqr: 'TwitQR',
+						subtitle: '1ツイートに収まるQRコード生成機',
+					},
+				},
+			},
+			detectBrowserLanguage: {
+				useCookie: true,
+			},
+		}],
 	],
 
 	/*
