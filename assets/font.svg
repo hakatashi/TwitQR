@@ -1,0 +1,35 @@
+
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<font id="TwitQR" horiz-adv-x="200" >
+			<font-face
+				font-family="TwitQR"
+				font-weight="500"
+				font-stretch="normal"
+				units-per-em="200"
+				ascent="200"
+				descent="0"
+				bbox="0 0 200 200"
+			/>
+			<missing-glyph />
+			<glyph unicode=" " d="M 0 0 z" />
+			<glyph unicode="█" d="M 0 0 L 200 0 L 200 200 L 0 200 z" />
+			<glyph unicode="▘" d="M 0 100 L 100 100 L 100 200 L 0 200 z" />
+			<glyph unicode="▝" d="M 100 100 L 200 100 L 200 200 L 100 200 z" />
+			<glyph unicode="▀" d="M 0 100 L 200 100 L 200 200 L 0 200 z" />
+			<glyph unicode="▖" d="M 0 0 L 100 0 L 100 100 L 0 100 z" />
+			<glyph unicode="▌" d="M 0 0 L 100 0 L 100 200 L 0 200 z" />
+			<glyph unicode="▞" d="M 0 0 L 100 0 L 100 200 L 200 200 L 200 100 L 0 100 z" />
+			<glyph unicode="▛" d="M 0 0 L 100 0 L 100 100 L 200 100 L 200 200 L 0 200 z" />
+			<glyph unicode="▗" d="M 100 0 L 200 0 L 200 100 L 100 100 z" />
+			<glyph unicode="▚" d="M 100 0 L 200 0 L 200 100 L 0 100 L 0 200 L 100 200 z" />
+			<glyph unicode="▐" d="M 100 0 L 200 0 L 200 200 L 100 200 z" />
+			<glyph unicode="▜" d="M 100 0 L 200 0 L 200 200 L 0 200 L 0 100 L 100 100 z" />
+			<glyph unicode="▄" d="M 0 0 L 200 0 L 200 100 L 0 100 z" />
+			<glyph unicode="▙" d="M 0 0 L 200 0 L 200 100 L 100 100 L 100 200 L 0 200 z" />
+			<glyph unicode="▟" d="M 0 0 L 200 0 L 200 200 L 100 200 L 100 100 L 0 100 z" />
+			<glyph unicode="█" d="M 0 0 L 200 0 L 200 200 L 0 200 z" />
+		</font>
+	</defs>
+</svg>
