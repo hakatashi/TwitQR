@@ -1,24 +1,21 @@
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true
-  },
-  parserOptions: {
-    parser: 'babel-eslint'
-  },
-  extends: [
-    'plugin:vue/recommended',
-    'plugin:prettier/recommended'
-  ],
-  // required to lint *.vue files
-  plugins: [
-    'vue',
-    'prettier'
-  ],
-  // add your custom rules here
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
-  }
+	root: true,
+	parserOptions: {
+		parser: 'babel-eslint',
+	},
+	env: {
+		browser: true,
+		node: true,
+	},
+	extends: ['@hakatashi'],
+	plugins: ['prettier'],
+	rules: {
+		'node/no-unsupported-features': 'off',
+		'node/no-unsupported-features/es-syntax': 'off',
+		'private-props/no-use-outside': 'off',
+		'max-params': 'off',
+		'no-underscore-dangle': 'off',
+		quotes: ['error', 'single', {avoidEscape: true}],
+	},
+	globals: {},
 }

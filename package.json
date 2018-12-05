@@ -1,30 +1,30 @@
 {
-  "name": "twitqr",
-  "version": "1.0.0",
-  "description": "Influence your qr code with only one tweet!",
-  "author": "Koki Takahashi",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
-  },
-  "dependencies": {
-    "cross-env": "^5.2.0",
-    "nuxt": "^2.0.0",
-    "@nuxtjs/bulma": "^1.2.0"
-  },
-  "devDependencies": {
-    "nodemon": "^1.11.0",
-    "babel-eslint": "^8.2.1",
-    "eslint": "^5.0.1",
-    "eslint-loader": "^2.0.0",
-    "eslint-plugin-vue": "^4.0.0",
-    "eslint-config-prettier": "^3.1.0",
-    "eslint-plugin-prettier": "2.6.2",
-    "prettier": "1.14.3"
-  }
+	"name": "twitqr",
+	"version": "1.0.0",
+	"description": "Influence your qr code with only one tweet!",
+	"author": "Koki Takahashi",
+	"private": true,
+	"scripts": {
+		"dev": "nuxt",
+		"build": "nuxt build",
+		"start": "nuxt start",
+		"generate": "nuxt generate",
+		"lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+		"precommit": "npm run lint"
+	},
+	"dependencies": {
+		"cross-env": "^5.2.0",
+		"nuxt": "^2.0.0",
+		"@nuxtjs/bulma": "^1.2.0"
+	},
+	"devDependencies": {
+		"@hakatashi/eslint-config": "^1.8.4",
+		"babel-eslint": "^8.2.1",
+		"eslint": "^5.0.1",
+		"eslint-config-prettier": "^3.1.0",
+		"eslint-loader": "^2.0.0",
+		"eslint-plugin-prettier": "2.6.2",
+		"nodemon": "^1.11.0",
+		"prettier": "1.14.3"
+	}
 }
