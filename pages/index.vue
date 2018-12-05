@@ -1,5 +1,5 @@
 <template>
-	<div class="container" :style="{maxWidth: '640px'}">
+	<div class="container qrcode-container">
 		<div class="titles">
 			<h1 class="title">{{$t('twitqr')}}</h1>
 			<h2 class="subtitle">{{$t('subtitle')}}</h2>
@@ -22,9 +22,9 @@
 				<textarea
 					v-model="qrCode"
 					class="textarea has-fixed-size qrcode"
-					placeholder="Textarea"
 					rows="11"
 					readonly
+					@click="$event.target.select()"
 				/>
 			</div>
 		</div>
@@ -114,6 +114,10 @@ export default {
 </script>
 
 <style>
+.qrcode-container {
+	max-width: 500px;
+}
+
 .titles {
 	text-align: center;
 }
@@ -123,10 +127,16 @@ export default {
 }
 
 .qrcode {
-	font-size: 2rem;
+	font-size: 2.5rem;
 	line-height: 1em;
 	letter-spacing: -1px;
 	font-family: TwitQR;
 	color: #000;
+}
+
+@media (max-width: 530px) {
+	.qrcode {
+		font-size: 7vw;
+	}
 }
 </style>
