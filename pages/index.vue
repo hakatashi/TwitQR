@@ -12,7 +12,6 @@
 					class="input is-success"
 					type="text"
 					placeholder="Text input"
-					value="bulma"
 				>
 			</div>
 			<p v-if="error" class="help is-danger">{{error}}</p>
@@ -36,15 +35,9 @@
 import QRCode from 'qrcode';
 import chunk from 'lodash/chunk';
 import flatten from 'lodash/flatten';
+import toSJIS from 'qrcode/helper/to-sjis';
 import zip from 'lodash/zip';
 
-/*
-Capabilities
-L: 152bits
-M: 128bits
-Q: 104bits
-H: 72bits
-*/
 const codelCharacters = {
 	'0000': ' ',
 	1000: '▘',
@@ -68,13 +61,21 @@ export default {
 	components: {},
 	data() {
 		return {
-			text: '',
+			text: 'TWITQR: TWEET QR!',
 			qrCode: '',
 			error: '',
 		};
 	},
 	watch: {
 		text(newText) {
+			this.onTextChange(newText);
+		}
+	},
+	created() {
+		this.onTextChange(this.text);
+	},
+	methods: {
+		onTextChange(newText) {
 			this.error = '';
 
 			if (newText === '') {
@@ -86,6 +87,7 @@ export default {
 			try {
 				tempData = QRCode.create(newText, {
 					version: 1,
+					toSJISFunc: toSJIS,
 				});
 			} catch (error) {
 				this.error = error.message;
@@ -104,6 +106,7 @@ export default {
 					return codelCharacters[codelData.join('')];
 				})
 			));
+
 			this.qrCode = codelCharacterRows.map((row) => row.join('')).join('\n');
 		},
 	},
@@ -122,6 +125,8 @@ export default {
 .qrcode {
 	font-size: 2rem;
 	line-height: 1em;
-	font-family: monospace;
+	letter-spacing: -1px;
+	font-family: TwitQR;
+	color: #000;
 }
 </style>
