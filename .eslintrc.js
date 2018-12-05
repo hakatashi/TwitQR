@@ -15,6 +15,7 @@ module.exports = {
 		'private-props/no-use-outside': 'off',
 		'max-params': 'off',
 		'no-underscore-dangle': 'off',
+		'no-console': 'off',
 		quotes: ['error', 'single', {avoidEscape: true}],
 	},
 	globals: {},

@@ -1,71 +1,72 @@
 <template>
-	<section class="container">
-		<div>
-			<logo/>
-			<h1 class="title">
-				twitqr
-			</h1>
-			<h2 class="subtitle">
-				Influence your qr code with only one tweet!
-			</h2>
-			<div class="links">
-				<a
-					href="https://nuxtjs.org/"
-					target="_blank"
-					class="button--green"
+	<div class="container" :style="{maxWidth: '640px'}">
+		<div class="field">
+			<label class="label">Text</label>
+			<div class="control has-icons-left has-icons-right">
+				<input
+					v-model="text"
+					class="input is-success"
+					type="text"
+					placeholder="Text input"
+					value="bulma"
 				>
-					Documentation
-				</a>
-				<a
-					href="https://github.com/nuxt/nuxt.js"
-					target="_blank"
-					class="button--grey"
-				>
-					GitHub
-				</a>
+				<span class="icon is-small is-right">
+					<i class="fas fa-check"/>
+				</span>
+			</div>
+			<p v-if="error" class="help is-danger">{{error}}</p>
+		</div>
+		<div class="field">
+			<label class="label">Message</label>
+			<div class="control">
+				<textarea
+					v-model="qrCode"
+					class="textarea has-fixed-size"
+					placeholder="Textarea"
+					rows="21"
+					readonly
+				/>
 			</div>
 		</div>
-	</section>
+	</div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
+import QRCode from 'qrcode';
+import chunk from 'lodash/chunk';
+
+/*
+Capabilities
+L: 152bits
+M: 128bits
+Q: 104bits
+H: 72bits
+*/
 
 export default {
-	components: {
-		Logo,
+	components: {},
+	data() {
+		return {
+			text: '',
+			qrCode: '',
+			error: '',
+		};
+	},
+	watch: {
+		text(newText) {
+			try {
+				const data = QRCode.create(newText, {
+					version: 1,
+				});
+				this.qrCode = chunk(data.modules.data, 21).map((l) => l.join('')).join('\n');
+			} catch (error) {
+				this.error = error.message;
+				this.qrCode = '';
+			}
+		},
 	},
 };
 </script>
 
 <style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
