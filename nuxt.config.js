@@ -103,5 +103,6 @@ module.exports = {
 
 	purgeCSS: {
 		mode: 'postcss',
+		whitelist: ['svg', 'svg-inline--fa'],
 	},
 };
