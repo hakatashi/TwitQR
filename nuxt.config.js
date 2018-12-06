@@ -67,6 +67,7 @@ module.exports = {
 				useCookie: true,
 			},
 		}],
+		'nuxt-purgecss',
 	],
 
 	/*
@@ -80,20 +81,27 @@ module.exports = {
 				},
 			},
 		},
-
-		/*
-    ** You can extend webpack config here
-    */
-		extend(config, ctx) {
-			// Run ESLint on save
-			if (ctx.isDev && ctx.isClient && false) {
-				config.module.rules.push({
-					enforce: 'pre',
-					test: /\.(js|vue)$/,
-					loader: 'eslint-loader',
-					exclude: /(node_modules)/,
-				});
-			}
+		html: {
+			minify: {
+				collapseBooleanAttributes: true,
+				collapseWhitespace: true,
+				decodeEntities: true,
+				minifyCSS: true,
+				minifyJS: true,
+				processConditionalComments: true,
+				removeEmptyAttributes: true,
+				removeRedundantAttributes: true,
+				trimCustomFragments: true,
+				useShortDoctype: true,
+			},
 		},
+	},
+
+	router: {
+		base: '/TwitQR/',
+	},
+
+	purgeCSS: {
+		mode: 'postcss',
 	},
 };
