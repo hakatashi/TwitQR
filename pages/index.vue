@@ -28,13 +28,36 @@
 				/>
 			</div>
 		</div>
+		<a
+			v-clipboard:copy="qrCode"
+			class="button"
+			target="_blank"
+			rel="noopener"
+			:disabled="qrCode === ''"
+		>
+			<span>{{$t('copy')}}</span>
+		</a>
+		<a
+			class="button is-info"
+			:href="qrCode !== '' && tweetUrl"
+			target="_blank"
+			rel="noopener"
+			:disabled="qrCode === ''"
+		>
+			<span class="icon">
+				<font-awesome-icon :icon="faTwitter"/>
+			</span>
+			<span>{{$t('tweet')}}</span>
+		</a>
 	</div>
 </template>
 
 <script>
 import QRCode from 'qrcode';
 import chunk from 'lodash/chunk';
+import {faTwitter} from '@fortawesome/free-brands-svg-icons/faTwitter';
 import flatten from 'lodash/flatten';
+import qs from 'querystring';
 import toSJIS from 'qrcode/helper/to-sjis';
 import zip from 'lodash/zip';
 
@@ -66,10 +89,20 @@ export default {
 			error: '',
 		};
 	},
+	computed: {
+		faTwitter() {
+			return faTwitter;
+		},
+		tweetUrl() {
+			return `https://twitter.com/intent/tweet?${qs.encode({
+				text: `${this.qrCode}\nhttps://hakatashi.github.io/TwitQR/`,
+			})}`;
+		},
+	},
 	watch: {
 		text(newText) {
 			this.onTextChange(newText);
-		}
+		},
 	},
 	created() {
 		this.onTextChange(this.text);

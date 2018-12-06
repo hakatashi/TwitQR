@@ -3,9 +3,6 @@ const pkg = require('./package');
 module.exports = {
 	mode: 'universal',
 
-	/*
-  ** Headers of the page
-  */
 	head: {
 		title: pkg.name,
 		meta: [
@@ -16,26 +13,17 @@ module.exports = {
 		link: [{rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}],
 	},
 
-	/*
-  ** Customize the progress-bar color
-  */
 	loading: {color: '#fff'},
 
-	/*
-  ** Global CSS
-  */
 	css: [],
 
-	/*
-  ** Plugins to load before mounting the App
-  */
-	plugins: [],
+	plugins: [
+		'~/plugins/vue-clipboard2.js',
+	],
 
-	/*
-  ** Nuxt.js modules
-  */
 	modules: [
 		'@nuxtjs/bulma',
+		'nuxt-fontawesome',
 		['nuxt-i18n', {
 			locales: [
 				{
@@ -56,12 +44,16 @@ module.exports = {
 						qrcode: 'QR Code',
 						twitqr: 'TwitQR',
 						subtitle: 'Influence your QR Code with only one tweet!',
+						copy: 'Copy to clipboard',
+						tweet: 'Tweet',
 					},
 					ja: {
 						text: 'テキスト',
 						qrcode: 'QRコード',
 						twitqr: 'TwitQR',
 						subtitle: '1ツイートに収まるQRコード生成機',
+						copy: 'コピーする',
+						tweet: 'ツイートする',
 					},
 				},
 			},
