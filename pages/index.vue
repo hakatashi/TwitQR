@@ -175,6 +175,11 @@ export default {
 			this.text = this.text.toUpperCase();
 		},
 	},
+	head() {
+		return {
+			title: `${this.$t('twitqr')}: ${this.$t('subtitle')}`,
+		};
+	},
 };
 </script>
 
