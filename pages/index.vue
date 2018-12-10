@@ -5,9 +5,10 @@
 			<h2 class="subtitle">{{$t('subtitle')}}</h2>
 		</div>
 		<div class="field">
-			<label class="label">{{$t('text')}}</label>
+			<label class="label" for="qrcode-input">{{$t('text')}}</label>
 			<div class="control">
 				<input
+					id="qrcode-input"
 					v-model="text"
 					class="input"
 					:class="error ? 'is-danger' : 'is-success'"
@@ -23,7 +24,7 @@
 			</p>
 		</div>
 		<div class="field">
-			<label class="label">{{$t('qrcode')}}</label>
+			<label class="label" for="qrcode-output">{{$t('qrcode')}}</label>
 			<a
 				v-clipboard:copy="qrCode"
 				class="button"
@@ -47,6 +48,7 @@
 			</a>
 			<div class="control">
 				<textarea
+					id="qrcode-output"
 					v-model="qrCode"
 					class="textarea has-fixed-size qrcode"
 					rows="11"
