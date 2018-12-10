@@ -68,7 +68,6 @@ import {faTwitter} from '@fortawesome/free-brands-svg-icons/faTwitter';
 import flatten from 'lodash/flatten';
 import inRange from 'lodash/inRange';
 import qs from 'querystring';
-import toSJIS from 'qrcode/helper/to-sjis';
 import zip from 'lodash/zip';
 
 const codelCharacters = {
@@ -127,7 +126,7 @@ export default {
 		this.onTextChange(this.text);
 	},
 	methods: {
-		onTextChange(newText) {
+		async onTextChange(newText) {
 			this.error = '';
 
 			if (newText === '') {
@@ -137,10 +136,18 @@ export default {
 
 			let tempData = null;
 			try {
-				tempData = QRCode.create(newText, {
-					version: 1,
-					toSJISFunc: toSJIS,
-				});
+				if (newText.match(/[^\x00-\x7F]/)) {
+					const {default: toSJISFunc} = await import('qrcode/helper/to-sjis');
+
+					tempData = QRCode.create(newText, {
+						version: 1,
+						toSJISFunc,
+					});
+				} else {
+					tempData = QRCode.create(newText, {
+						version: 1,
+					});
+				}
 			} catch (error) {
 				this.error = error.message;
 				this.qrCode = '';

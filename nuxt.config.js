@@ -66,6 +66,7 @@ module.exports = {
 			detectBrowserLanguage: {
 				useCookie: true,
 			},
+			parsePages: false,
 		}],
 		'nuxt-purgecss',
 	],
