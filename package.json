@@ -10,7 +10,8 @@
 		"start": "nuxt start",
 		"generate": "nuxt generate",
 		"lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-		"precommit": "npm run lint"
+		"precommit": "npm run lint",
+		"deploy": "npm run generate && cd dist && git init && git remote add origin https://github.com/hakatashi/TwitQR.git && git fetch origin && git symbolic-ref HEAD refs/remotes/origin/gh-pages && git add . && git commit -m \"Update build\" && git push -u origin HEAD:gh-pages && cd .."
 	},
 	"dependencies": {
 		"@fortawesome/free-brands-svg-icons": "^5.5.0",
