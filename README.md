@@ -1,22 +1,7 @@
-# twitqr
+# TwitQR
 
-> Influence your qr code with only one tweet!
+Influence your QR Code with only one tweet!
 
-## Build Setup
+https://hakatashi.github.io/TwitQR/
 
-``` bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn run dev
-
-# build for production and launch server
-$ yarn run build
-$ yarn start
-
-# generate static project
-$ yarn run generate
-```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+[![](https://i.imgur.com/Av56TQP.png)](https://hakatashi.github.io/TwitQR/)
